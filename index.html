@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueMedia - Convierte Redes en Clientes Reales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+</head>
+<body>
+    <!-- Sticky CTA Mobile -->
+    <div class="sticky-cta-mobile">
+        <a href="#cta-final" class="sticky-btn">🚀 Quiero llenar mi agenda ya</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-new" data-aos="fade-up">
+        <div class="container">
+            <div class="hero-content-new">
+                <div class="hero-text-new">
+                    <h1 class="hero-title-new">¿Tus redes tienen vistas... pero no clientes?</h1>
+                    <p class="hero-subtitle-new">Conoce BlueMedia — La fórmula probada por doctores, influencers y negocios para convertir seguidores en citas, ventas y crecimiento real.</p>
+                    <a href="#cta-final" class="cta-button-hero">🚀 Quiero llenar mi agenda ya</a>
+                    <p class="hero-microcopy">BlueMedia no genera likes... genera resultados reales.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel de Resultados Reales -->
+    <section class="results-carousel" data-aos="fade-up">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-track" id="resultsCarousel">
+                    <!-- Primera serie de slides -->
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <img src="images/dr-carlos-guerra.jpg" alt="Dr. Luis" class="client-photo">
+                            <h3>Dr. Luis García</h3>
+                            <p>Urólogo</p>
+                            <div class="result-metric">+2.4M views</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <div class="client-photo restaurant-bg"></div>
+                            <h3>Restaurante "El Fogón"</h3>
+                            <p>Comida Regional</p>
+                            <div class="result-metric">Reservas llenas por Instagram</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <div class="client-photo influencer-bg"></div>
+                            <h3>@soyluisa</h3>
+                            <p>Influencer de Lifestyle</p>
+                            <div class="result-metric">+200 mensajes por reel</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <img src="images/doctor-bata-tablet.jpg" alt="Clínica Dental" class="client-photo">
+                            <h3>Clínica Dental Sonrisa</h3>
+                            <p>Odontología</p>
+                            <div class="result-metric">80 citas semanales</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <div class="client-photo barbershop-bg"></div>
+                            <h3>Barbershop Zone</h3>
+                            <p>Barbería Premium</p>
+                            <div class="result-metric">1K seguidores en 10 días</div>
+                        </div>
+                    </div>
+                    <!-- Segunda serie de slides (duplicadas para loop infinito) -->
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <img src="images/dr-carlos-guerra.jpg" alt="Dr. Luis" class="client-photo">
+                            <h3>Dr. Luis García</h3>
+                            <p>Urólogo</p>
+                            <div class="result-metric">+2.4M views</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <div class="client-photo restaurant-bg"></div>
+                            <h3>Restaurante "El Fogón"</h3>
+                            <p>Comida Regional</p>
+                            <div class="result-metric">Reservas llenas por Instagram</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <div class="client-photo influencer-bg"></div>
+                            <h3>@soyluisa</h3>
+                            <p>Influencer de Lifestyle</p>
+                            <div class="result-metric">+200 mensajes por reel</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <img src="images/doctor-bata-tablet.jpg" alt="Clínica Dental" class="client-photo">
+                            <h3>Clínica Dental Sonrisa</h3>
+                            <p>Odontología</p>
+                            <div class="result-metric">80 citas semanales</div>
+                        </div>
+                    </div>
+                    <div class="result-slide">
+                        <div class="client-card">
+                            <div class="client-photo barbershop-bg"></div>
+                            <h3>Barbershop Zone</h3>
+                            <p>Barbería Premium</p>
+                            <div class="result-metric">1K seguidores en 10 días</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="massive-stat" data-aos="zoom-in" data-aos-delay="200">
+                <span class="massive-number">50 millones</span>
+                <span class="massive-label">de vistas generadas para nuestros clientes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Cómo funciona BlueMedia? -->
+    <section class="how-it-works-new" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title-new">¿Cómo funciona BlueMedia?</h2>
+            <div class="process-steps">
+                <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Analizamos tu perfil y marca</h3>
+                    <p>Estudiamos tu nicho, competencia y audiencia para crear una estrategia única.</p>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Creamos contenido estratégico que convierte</h3>
+                    <p>Desarrollamos contenido que no solo entretiene, sino que genera citas, ventas y leads.</p>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automatizamos mensajes y performance</h3>
+                    <p>Implementamos sistemas que trabajan 24/7 para convertir seguidores en clientes.</p>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Llenamos tu agenda / vendes más / creces tu comunidad</h3>
+                    <p>Resultados medibles: más citas, más ventas, más seguidores que se convierten.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Esto es para ti? -->
+    <section class="target-audience" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title-new">¿Esto es para ti?</h2>
+            <div class="checklist">
+                <div class="check-item" data-aos="fade-right" data-aos-delay="100">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Eres médico y tu agenda no se llena</span>
+                </div>
+                <div class="check-item" data-aos="fade-right" data-aos-delay="200">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Tienes un restaurante y quieres más reservaciones</span>
+                </div>
+                <div class="check-item" data-aos="fade-right" data-aos-delay="300">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Eres influencer pero no monetizas bien</span>
+                </div>
+                <div class="check-item" data-aos="fade-right" data-aos-delay="400">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Ya creas contenido pero no ves resultados</span>
+                </div>
+                <div class="check-item" data-aos="fade-right" data-aos-delay="500">
+                    <i class="fas fa-check-circle"></i>
+                    <span>No sabes nada de marketing y no tienes tiempo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Qué pasa si no haces nada? -->
+    <section class="urgency-section" data-aos="fade-up">
+        <div class="container">
+            <div class="urgency-content">
+                <h2>¿Qué pasa si no haces nada?</h2>
+                <p>"Tus redes están activas, pero no generan dinero, pacientes ni ventas.<br>
+                <strong>Cada semana sin estrategia estás perdiendo clientes que ya están buscando a alguien como tú.</strong>"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Antes vs Después -->
+    <section class="before-after" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title-new">Antes vs Después de BlueMedia</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card before" data-aos="fade-right">
+                    <h3>Antes</h3>
+                    <div class="comparison-items">
+                        <div class="comparison-item">
+                            <i class="fas fa-times"></i>
+                            <span>4 citas a la semana</span>
+                        </div>
+                        <div class="comparison-item">
+                            <i class="fas fa-times"></i>
+                            <span>800 views por video</span>
+                        </div>
+                        <div class="comparison-item">
+                            <i class="fas fa-times"></i>
+                            <span>3 seguidores/mes</span>
+                        </div>
+                        <div class="comparison-item">
+                            <i class="fas fa-times"></i>
+                            <span>Sin reservas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="vs-divider">VS</div>
+                <div class="comparison-card after" data-aos="fade-left">
+                    <h3>Después</h3>
+                    <div class="comparison-items">
+                        <div class="comparison-item">
+                            <i class="fas fa-check"></i>
+                            <span>20+ citas por semana</span>
+                        </div>
+                        <div class="comparison-item">
+                            <i class="fas fa-check"></i>
+                            <span>+1.5M de views</span>
+                        </div>
+                        <div class="comparison-item">
+                            <i class="fas fa-check"></i>
+                            <span>+3,000 seguidores reales</span>
+                        </div>
+                        <div class="comparison-item">
+                            <i class="fas fa-check"></i>
+                            <span>Restaurante con lista de espera</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Qué puedes esperar en 30 días? -->
+    <section class="timeline-30days" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title-new">¿Qué puedes esperar en 30 días?</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-week">Semana 1</div>
+                    <div class="timeline-content" data-week="Semana 1">
+                        <h3>Diagnóstico y estrategia personalizada</h3>
+                        <p>Análisis completo de tu perfil y diseño de estrategia única</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-week">Semana 2</div>
+                    <div class="timeline-content" data-week="Semana 2">
+                        <h3>Producción y edición de contenido</h3>
+                        <p>Creación de contenido estratégico que convierte</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-week">Semana 3</div>
+                    <div class="timeline-content" data-week="Semana 3">
+                        <h3>Lanzamiento y automatización</h3>
+                        <p>Publicación estratégica y sistemas automatizados</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-week">Semana 4</div>
+                    <div class="timeline-content" data-week="Semana 4">
+                        <h3>Primeros resultados, citas, ventas y seguimiento</h3>
+                        <p>Medición de resultados y optimización continua</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Carrusel -->
+    <section class="testimonials-new" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title-new">Lo que dicen nuestros clientes</h2>
+            <div class="testimonials-carousel">
+                <div class="testimonial-track" id="testimonialsCarousel">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card-new">
+                            <img src="images/doctor-bata-tablet.jpg" alt="Dr. Fernando" class="testimonial-photo">
+                            <h4>Dr. Fernando Morales</h4>
+                            <span>Dermatólogo</span>
+                            <p>"BlueMedia llenó mi agenda médica en menos de 2 meses."</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card-new">
+                            <img src="images/dr-carlos-guerra.jpg" alt="Dr. Carlos" class="testimonial-photo">
+                            <h4>Dr. Carlos Guerra</h4>
+                            <span>Urólogo</span>
+                            <p>"Por fin tengo contenido que genera ingresos."</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card-new">
+                            <img src="images/doctor-oficina.jpg" alt="Restaurante" class="testimonial-photo">
+                            <h4>María González</h4>
+                            <span>Restaurante "La Cocina"</span>
+                            <p>"Nunca pensé tener reservas completas cada fin de semana."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentTestimonial(1)"></span>
+                    <span class="dot" onclick="currentTestimonial(2)"></span>
+                    <span class="dot" onclick="currentTestimonial(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Números Hacen el Ruido -->
+    <section class="numbers-section" data-aos="fade-up">
+        <div class="container">
+            <div class="numbers-header">
+                <h2 class="numbers-title">Resultados que hablan por sí solos</h2>
+                <div class="numbers-subtitle">Datos reales de clientes reales en los últimos 12 meses</div>
+            </div>
+            
+            <div class="numbers-grid">
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="number-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="number-value" data-target="50">50</div>
+                    <div class="number-label">Marcas atendidas</div>
+                    <div class="number-microcopy">Cada marca es una historia de éxito</div>
+                </div>
+                
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="number-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="number-value" data-target="80">80%</div>
+                    <div class="number-label">Aumento en citas o conversiones</div>
+                    <div class="number-microcopy">Resultados medibles, no promesas</div>
+                </div>
+                
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="number-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="number-value" data-target="25">25%</div>
+                    <div class="number-label">Incremento en ticket promedio</div>
+                    <div class="number-microcopy">Ingresos reales, no solo likes</div>
+                </div>
+                
+                <div class="number-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="number-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="number-value" data-target="120">120%</div>
+                    <div class="number-label">Seguidores orgánicos reales</div>
+                    <div class="number-microcopy">Seguidores que sí interactúan</div>
+                </div>
+                
+                <div class="number-card featured" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="number-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="number-value" data-target="50">50M</div>
+                    <div class="number-label">Vistas generadas en redes sociales</div>
+                    <div class="number-microcopy">Alcance real, engagement auténtico</div>
+                    <div class="featured-badge">Destacado</div>
+                </div>
+            </div>
+            
+            <div class="numbers-footer">
+                <p>Datos verificables • Resultados auditables • Crecimiento sostenible</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo -->
+    <section class="video-demo" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title-new">Así se ve una marca cuando trabaja con BlueMedia</h2>
+            <div class="video-container">
+                <div class="video-player" onclick="openVideo()">
+                    <div class="video-thumbnail">
+                        <div class="play-button-large">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-overlay">
+                            <h3>Demo de Resultados Reales</h3>
+                            <p>Ve cómo transformamos perfiles en máquinas de generar clientes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Poderoso -->
+    <section class="cta-final" id="cta-final" data-aos="fade-up">
+        <div class="container">
+            <div class="cta-content-final">
+                <h2>¿Listo para convertir tus redes en clientes reales?</h2>
+                <p>Haz crecer tu marca médica, negocio o perfil personal con contenido que genera ingresos.</p>
+                <a href="#" class="cta-button-final" onclick="openCalendly()">
+                    <span>Agendar llamada estratégica ahora</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="cta-guarantee">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Garantía de resultados en 30 días o devolvemos tu dinero</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Profesional -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-content-new">
+                <div class="footer-brand">
+                    <img src="images/bluemedia-logo.jpg" alt="BlueMedia" class="footer-logo-new">
+                    <h3>BlueMedia</h3>
+                    <p>Convertimos redes sociales en clientes reales</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:contacto@bluemedia.com">contacto@bluemedia.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/5512345678">WhatsApp directo</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <h4>Legal</h4>
+                    <a href="#">Aviso de privacidad</a>
+                    <a href="#">Términos y condiciones</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BlueMedia. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
