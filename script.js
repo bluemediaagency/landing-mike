@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicializar carruseles
     initResultsCarousel();
-    initTestimonialsCarousel();
     
     // Sticky CTA mobile
     initStickyCTA();
@@ -49,71 +48,7 @@ function initResultsCarousel() {
     });
 }
 
-// Carrusel de Testimonios
-function initTestimonialsCarousel() {
-    const carousel = document.getElementById('testimonialsCarousel');
-    if (!carousel) return;
-    
-    const slides = carousel.querySelectorAll('.testimonial-slide');
-    let currentTestimonial = 0;
-    const totalTestimonials = slides.length;
-    
-    function showTestimonial(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active');
-            if (i === index) {
-                slide.classList.add('active');
-            }
-        });
-        
-        // Actualizar dots
-        const dots = document.querySelectorAll('.carousel-dots .dot');
-        dots.forEach((dot, i) => {
-            dot.classList.remove('active');
-            if (i === index) {
-                dot.classList.add('active');
-            }
-        });
-        
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    }
-    
-    function nextTestimonial() {
-        currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-        showTestimonial(currentTestimonial);
-    }
-    
-    // Auto-play cada 5 segundos
-    setInterval(nextTestimonial, 5000);
-    
-    // Mostrar primer testimonial
-    showTestimonial(0);
-}
-
-// Función global para cambiar testimonial (llamada desde HTML)
-function currentTestimonial(index) {
-    const carousel = document.getElementById('testimonialsCarousel');
-    if (!carousel) return;
-    
-    const slides = carousel.querySelectorAll('.testimonial-slide');
-    
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index - 1) {
-            slide.classList.add('active');
-        }
-    });
-    
-    const dots = document.querySelectorAll('.carousel-dots .dot');
-    dots.forEach((dot, i) => {
-        dot.classList.remove('active');
-        if (i === index - 1) {
-            dot.classList.add('active');
-        }
-    });
-    
-    carousel.style.transform = `translateX(-${(index - 1) * 100}%)`;
-}
+// Función de testimonios removida
 
 // Sticky CTA Mobile
 function initStickyCTA() {
