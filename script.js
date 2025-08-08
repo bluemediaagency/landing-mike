@@ -162,10 +162,11 @@ function initSmoothScrolling() {
                     this.style.transform = '';
                 }, 150);
                 
-                // Scroll suave
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                // Scroll suave manual sin scrollIntoView
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: targetPosition - 80,
+                    behavior: 'smooth'
                 });
                 
                 // Tracking de conversión
@@ -583,10 +584,7 @@ function showSuccessMessage() {
     successMessage.style.display = 'block';
     
     // Scroll suave al mensaje
-    successMessage.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-    });
+    // Removido scrollIntoView para evitar saltos
 }
 
 function showErrorMessage(customMessage = null) {
@@ -601,10 +599,7 @@ function showErrorMessage(customMessage = null) {
     errorMessage.style.display = 'block';
     
     // Scroll suave al mensaje
-    errorMessage.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-    });
+    // Removido scrollIntoView para evitar saltos
 }
 
 function hideMessages() {
