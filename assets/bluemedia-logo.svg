@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo BlueMedia completo (primera imagen) -->
+  <g fill="#000000">
+    <!-- B -->
+    <path d="M80 205 L80 310 L145 310 Q175 310 190 295 Q205 280 205 260 Q205 240 190 225 Q175 210 145 210 L120 210 L120 235 L140 235 Q150 235 155 240 Q160 245 160 260 Q160 275 155 280 Q150 285 140 285 L120 285 L120 310 M80 205 L140 205 Q165 205 180 190 Q195 175 195 150 Q195 125 180 110 Q165 95 140 95 L80 95 L80 205 M120 120 L140 120 Q150 120 155 125 Q160 130 160 150 Q160 170 155 175 Q150 180 140 180 L120 180 L120 120"/>
+    
+    <!-- M (diagonal) -->
+    <path d="M145 205 L197 310 L175 205 L197 95 L145 200"/>
+    
+    <!-- BLUE -->
+    <text x="222" y="240" font-family="Arial, sans-serif" font-weight="bold" font-size="48">BLUE</text>
+    
+    <!-- MEDIA -->
+    <text x="222" y="295" font-family="Arial, sans-serif" font-weight="bold" font-size="42">MEDIA</text>
+  </g>
+</svg>
