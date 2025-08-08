@@ -1401,6 +1401,125 @@ body {
     color: #999;
 }
 
+/* Agenda Llamada Section */
+.agenda-llamada-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.agenda-llamada-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(11, 99, 206, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.agenda-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.agenda-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.agenda-subtitle {
+    font-size: 1.4rem;
+    color: var(--dark-gray);
+    margin-bottom: 50px;
+    line-height: 1.6;
+    font-weight: 400;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.agenda-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 50px;
+    background: linear-gradient(135deg, #0056D2 0%, #1976D2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 15px 40px rgba(0, 86, 210, 0.25);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.agenda-btn:hover {
+    background: linear-gradient(135deg, #004bbf 0%, #1565C0 100%);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(0, 86, 210, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.agenda-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.agenda-btn i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.agenda-btn:hover i {
+    transform: translateX(3px) scale(1.1);
+}
+
+.agenda-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+}
+
+.agenda-btn:hover::before {
+    left: 100%;
+}
+
+.agenda-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.agenda-btn:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .sticky-cta-mobile {
@@ -1574,6 +1693,28 @@ body {
     .timeline-content p {
         font-size: 0.9rem;
     }
+    
+    /* Agenda Llamada Responsive */
+    .agenda-content {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .agenda-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .agenda-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+    }
+    
+    .agenda-btn {
+        padding: 20px 40px;
+        font-size: 1.3rem;
+        gap: 12px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1716,6 +1857,27 @@ body {
     
     .video-overlay p {
         font-size: 1rem;
+    }
+    
+    /* Agenda Llamada Mobile Small */
+    .agenda-content {
+        padding: 0 15px;
+    }
+    
+    .agenda-title {
+        font-size: 2rem;
+        margin-bottom: 18px;
+    }
+    
+    .agenda-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 35px;
+    }
+    
+    .agenda-btn {
+        padding: 18px 35px;
+        font-size: 1.2rem;
+        gap: 10px;
     }
 }
 

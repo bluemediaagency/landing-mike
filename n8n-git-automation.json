@@ -1,0 +1,83 @@
+{
+  "name": "BlueMedia Git Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "/webhook/bluemedia-deploy",
+        "options": {}
+      },
+      "name": "Webhook Deploy Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd \"/Volumes/Extreme SSD/⭐️LANDING MIKE\" && git add . && git commit -m \"Auto deploy: {{ $json.message || 'Actualización automática' }}\" && git push origin main"
+      },
+      "name": "Git Push",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/repos/tu-usuario/tu-repo/dispatches",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubApi",
+        "requestMethod": "POST",
+        "jsonParameters": true,
+        "bodyParametersJson": "{\n  \"event_type\": \"deploy-landing\",\n  \"client_payload\": {\n    \"message\": \"{{ $json.message }}\",\n    \"timestamp\": \"{{ $now }}\"\n  }\n}"
+      },
+      "name": "Trigger GitHub Action",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "message": "🚀 BlueMedia Landing actualizada!\n\n📝 Cambios: {{ $json.message }}\n🕐 Hora: {{ $now.format('DD/MM/YYYY HH:mm') }}\n🌐 URL: https://tu-usuario.github.io/landing-mike",
+        "additionalFields": {}
+      },
+      "name": "Slack Notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 1,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Deploy Trigger": {
+      "main": [
+        [
+          {
+            "node": "Git Push",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Git Push": {
+      "main": [
+        [
+          {
+            "node": "Trigger GitHub Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger GitHub Action": {
+      "main": [
+        [
+          {
+            "node": "Slack Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

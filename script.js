@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Lazy loading para imágenes
     initLazyLoading();
+    
+    // Inicializar formulario de leads - DESHABILITADO para usar el script simple
+    // initLeadForm();
 });
 
 // Carrusel de Resultados Reales (ahora es automático con CSS)
@@ -256,29 +259,7 @@ function initHoverEffects() {
         });
     });
     
-    // Efecto de ondas en botones CTA
-    const ctaButtons = document.querySelectorAll('.cta-button-hero, .cta-button-final, .sticky-btn');
-    
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.classList.add('ripple');
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
+    // Efecto ripple eliminado para permitir navegación directa a Tally
 }
 
 // Lazy Loading para Imágenes
@@ -322,17 +303,7 @@ function openVideo() {
     console.log('Video de BlueMedia abierto');
 }
 
-// Función para abrir Calendly (placeholder)
-function openCalendly() {
-    // Aquí integrarías con Calendly o tu sistema de agendamiento
-    console.log('Abriendo sistema de agendamiento...');
-    
-    // Tracking de conversión
-    trackConversion('Calendly CTA');
-    
-    // Placeholder: abrir en nueva ventana
-    alert('¡Excelente! En producción esto abriría tu sistema de agendamiento (Calendly, etc.)');
-}
+// Función eliminada - CTAs ahora van directamente a Tally
 
 // Sistema de Tracking de Conversiones
 function trackConversion(action) {
@@ -456,6 +427,193 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Formulario de Leads con integración n8n
+function initLeadForm() {
+    const form = document.getElementById('leadForm');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Obtener datos del formulario
+        const formData = new FormData(form);
+        const leadData = {
+            fullName: formData.get('fullName'),
+            whatsapp: formData.get('whatsapp'),
+            businessType: formData.get('businessType'),
+            timestamp: new Date().toISOString(),
+            source: 'landing_bluemedia'
+        };
+        
+        // Validar datos
+        if (!leadData.fullName || !leadData.whatsapp || !leadData.businessType) {
+            showErrorMessage('Por favor, completa todos los campos requeridos.');
+            return;
+        }
+        
+        // Mostrar estado de carga
+        const submitBtn = form.querySelector('.form-submit-btn');
+        const originalText = submitBtn.querySelector('.btn-text').textContent;
+        const originalIcon = submitBtn.querySelector('i').className;
+        
+        submitBtn.classList.add('loading');
+        submitBtn.querySelector('.btn-text').textContent = 'Enviando...';
+        submitBtn.querySelector('i').className = 'fas fa-spinner';
+        submitBtn.disabled = true;
+        
+        try {
+            // Enviar a webhook de n8n
+            const response = await fetch('https://rubendrz4542.app.n8n.cloud/webhook-test/lead-landing-bluemedia', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(leadData)
+            });
+            
+            if (response.ok) {
+                // Éxito
+                form.style.display = 'none';
+                showSuccessMessage();
+                
+                // Tracking de conversión
+                trackConversion('Lead Form Submitted');
+                
+                // Resetear formulario después de un tiempo
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'block';
+                    hideMessages();
+                }, 10000);
+                
+            } else {
+                throw new Error('Error en el servidor');
+            }
+            
+        } catch (error) {
+            console.error('Error enviando lead:', error);
+            showErrorMessage('Hubo un problema al enviar tu solicitud. Por favor, intenta de nuevo.');
+        } finally {
+            // Restaurar botón
+            submitBtn.classList.remove('loading');
+            submitBtn.querySelector('.btn-text').textContent = originalText;
+            submitBtn.querySelector('i').className = originalIcon;
+            submitBtn.disabled = false;
+        }
+    });
+    
+    // Validación en tiempo real
+    const inputs = form.querySelectorAll('input, select');
+    inputs.forEach(input => {
+        input.addEventListener('blur', validateField);
+        input.addEventListener('input', clearFieldError);
+    });
+}
+
+function validateField(e) {
+    const field = e.target;
+    const value = field.value.trim();
+    
+    // Remover errores previos
+    field.classList.remove('error');
+    
+    // Validar según el tipo de campo
+    switch(field.name) {
+        case 'fullName':
+            if (!value || value.length < 2) {
+                showFieldError(field, 'El nombre debe tener al menos 2 caracteres');
+                return false;
+            }
+            break;
+            
+        case 'whatsapp':
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]+$/;
+            if (!value || !phoneRegex.test(value) || value.length < 8) {
+                showFieldError(field, 'Ingresa un número de WhatsApp válido');
+                return false;
+            }
+            break;
+            
+        case 'businessType':
+            if (!value) {
+                showFieldError(field, 'Selecciona tu tipo de negocio');
+                return false;
+            }
+            break;
+    }
+    
+    return true;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
+    
+    // Remover mensaje de error previo
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Agregar nuevo mensaje de error
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = message;
+    field.parentNode.appendChild(errorDiv);
+}
+
+function clearFieldError(e) {
+    const field = e.target;
+    field.classList.remove('error');
+    
+    const errorMsg = field.parentNode.querySelector('.field-error');
+    if (errorMsg) {
+        errorMsg.remove();
+    }
+}
+
+function showSuccessMessage() {
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    errorMessage.style.display = 'none';
+    successMessage.style.display = 'block';
+    
+    // Scroll suave al mensaje
+    successMessage.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+}
+
+function showErrorMessage(customMessage = null) {
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    if (customMessage) {
+        errorMessage.querySelector('.error-content p').textContent = customMessage;
+    }
+    
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'block';
+    
+    // Scroll suave al mensaje
+    errorMessage.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+}
+
+function hideMessages() {
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+}
 
 // Inicializar optimizaciones cuando la página esté cargada
 window.addEventListener('load', () => {
