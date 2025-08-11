@@ -495,18 +495,77 @@ body {
     position: relative;
     height: 300px;
     overflow: hidden;
+    /* Mostrar más slides visibles a la vez */
+    padding: 0 20px;
 }
 
 .carousel-track {
     display: flex;
     height: 100%;
-    animation: scroll-continuous 40s linear infinite;
+    animation: scroll-continuous 200s ease-in-out infinite;
     width: calc(280px * 40 + 30px * 40); /* 40 slides en total (20 originales + 20 duplicadas) */
 }
 
 @keyframes scroll-continuous {
-    0% {
+    0%, 4% {
         transform: translateX(0);
+    }
+    5%, 9% {
+        transform: translateX(calc(-280px * 1 - 30px * 1));
+    }
+    10%, 14% {
+        transform: translateX(calc(-280px * 2 - 30px * 2));
+    }
+    15%, 19% {
+        transform: translateX(calc(-280px * 3 - 30px * 3));
+    }
+    20%, 24% {
+        transform: translateX(calc(-280px * 4 - 30px * 4));
+    }
+    25%, 29% {
+        transform: translateX(calc(-280px * 5 - 30px * 5));
+    }
+    30%, 34% {
+        transform: translateX(calc(-280px * 6 - 30px * 6));
+    }
+    35%, 39% {
+        transform: translateX(calc(-280px * 7 - 30px * 7));
+    }
+    40%, 44% {
+        transform: translateX(calc(-280px * 8 - 30px * 8));
+    }
+    45%, 49% {
+        transform: translateX(calc(-280px * 9 - 30px * 9));
+    }
+    50%, 54% {
+        transform: translateX(calc(-280px * 10 - 30px * 10));
+    }
+    55%, 59% {
+        transform: translateX(calc(-280px * 11 - 30px * 11));
+    }
+    60%, 64% {
+        transform: translateX(calc(-280px * 12 - 30px * 12));
+    }
+    65%, 69% {
+        transform: translateX(calc(-280px * 13 - 30px * 13));
+    }
+    70%, 74% {
+        transform: translateX(calc(-280px * 14 - 30px * 14));
+    }
+    75%, 79% {
+        transform: translateX(calc(-280px * 15 - 30px * 15));
+    }
+    80%, 84% {
+        transform: translateX(calc(-280px * 16 - 30px * 16));
+    }
+    85%, 89% {
+        transform: translateX(calc(-280px * 17 - 30px * 17));
+    }
+    90%, 94% {
+        transform: translateX(calc(-280px * 18 - 30px * 18));
+    }
+    95%, 99% {
+        transform: translateX(calc(-280px * 19 - 30px * 19));
     }
     100% {
         transform: translateX(calc(-280px * 20 - 30px * 20)); /* Recorrer la mitad para loop perfecto */
