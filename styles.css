@@ -502,76 +502,16 @@ body {
 .carousel-track {
     display: flex;
     height: 100%;
-    animation: scroll-continuous 140s ease-in-out infinite;
-    width: calc(280px * 20 + 30px * 20); /* 20 slides originales */
+    animation: scroll-continuous 60s linear infinite;
+    width: calc(280px * 40 + 30px * 40); /* 40 slides para bucle infinito */
 }
 
 @keyframes scroll-continuous {
-    0%, 3% {
+    0% {
         transform: translateX(0);
     }
-    4%, 7% {
-        transform: translateX(calc(-280px * 1 - 30px * 1));
-    }
-    8%, 11% {
-        transform: translateX(calc(-280px * 2 - 30px * 2));
-    }
-    12%, 15% {
-        transform: translateX(calc(-280px * 3 - 30px * 3));
-    }
-    16%, 19% {
-        transform: translateX(calc(-280px * 4 - 30px * 4));
-    }
-    20%, 23% {
-        transform: translateX(calc(-280px * 5 - 30px * 5));
-    }
-    24%, 27% {
-        transform: translateX(calc(-280px * 6 - 30px * 6));
-    }
-    28%, 31% {
-        transform: translateX(calc(-280px * 7 - 30px * 7));
-    }
-    32%, 35% {
-        transform: translateX(calc(-280px * 8 - 30px * 8));
-    }
-    36%, 39% {
-        transform: translateX(calc(-280px * 9 - 30px * 9));
-    }
-    40%, 43% {
-        transform: translateX(calc(-280px * 10 - 30px * 10));
-    }
-    44%, 47% {
-        transform: translateX(calc(-280px * 11 - 30px * 11));
-    }
-    48%, 51% {
-        transform: translateX(calc(-280px * 12 - 30px * 12));
-    }
-    52%, 55% {
-        transform: translateX(calc(-280px * 13 - 30px * 13));
-    }
-    56%, 59% {
-        transform: translateX(calc(-280px * 14 - 30px * 14));
-    }
-    60%, 63% {
-        transform: translateX(calc(-280px * 15 - 30px * 15));
-    }
-    64%, 67% {
-        transform: translateX(calc(-280px * 16 - 30px * 16));
-    }
-    68%, 71% {
-        transform: translateX(calc(-280px * 17 - 30px * 17));
-    }
-    72%, 75% {
-        transform: translateX(calc(-280px * 18 - 30px * 18));
-    }
-    76%, 79% {
-        transform: translateX(calc(-280px * 19 - 30px * 19));
-    }
-    80%, 97% {
-        transform: translateX(calc(-280px * 19 - 30px * 19)); /* Pausa larga en el último */
-    }
-    98%, 100% {
-        transform: translateX(0); /* Volver al inicio suavemente */
+    100% {
+        transform: translateX(calc(-280px * 20 - 30px * 20)); /* Mover exactamente la mitad para loop infinito */
     }
 }
 
