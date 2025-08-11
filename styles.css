@@ -500,8 +500,8 @@ body {
 .carousel-track {
     display: flex;
     height: 100%;
-    animation: scroll-continuous 30s linear infinite;
-    width: calc(280px * 10 + 30px * 10); /* Duplicamos las slides para loop infinito */
+    animation: scroll-continuous 40s linear infinite;
+    width: calc(280px * 40 + 30px * 40); /* 40 slides en total (20 originales + 20 duplicadas) */
 }
 
 @keyframes scroll-continuous {
@@ -509,7 +509,7 @@ body {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-280px * 5 - 30px * 5)); /* Mover exactamente la mitad */
+        transform: translateX(calc(-280px * 20 - 30px * 20)); /* Recorrer la mitad para loop perfecto */
     }
 }
 
