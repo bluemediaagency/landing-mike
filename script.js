@@ -1,51 +1,80 @@
 // Inicialización cuando el DOM está cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar AOS (Animate On Scroll)
-    AOS.init({
-        duration: 800,
-        easing: 'ease-out-cubic',
-        once: true,
-        offset: 100
-    });
-
-    // Inicializar carruseles
+    // Inicializar carrusel de resultados
     initResultsCarousel();
-    
-    // Sticky CTA mobile
-    initStickyCTA();
-    
-    // Smooth scrolling para CTAs
-    initSmoothScrolling();
-    
-    // Animaciones de contadores
-    initCounterAnimations();
-    
-    // Efectos de hover mejorados
-    initHoverEffects();
-    
-    // Lazy loading para imágenes
-    initLazyLoading();
-    
-    // Inicializar formulario de leads - DESHABILITADO para usar el script simple
-    // initLeadForm();
 });
 
-// Carrusel de Resultados Reales (ahora es automático con CSS)
+// Carrusel de Resultados - Minimalista y suave
 function initResultsCarousel() {
     const carousel = document.getElementById('resultsCarousel');
-    if (!carousel) return;
+    const dots = document.querySelectorAll('.carousel-dots .dot');
     
-    // El carrusel ahora funciona completamente con CSS animation
-    // Solo agregamos funcionalidad para pausar en hover si se desea
-    const carouselContainer = carousel.parentElement;
+    if (!carousel || dots.length === 0) return;
     
-    carouselContainer.addEventListener('mouseenter', () => {
-        carousel.style.animationPlayState = 'paused';
+    const slides = carousel.querySelectorAll('.results-slide');
+    let currentSlide = 0;
+    let autoSlideInterval;
+    const slideDuration = 5000; // 5 segundos
+    
+    // Función para mostrar un slide específico
+    function showSlide(index) {
+        // Remover clase active de todos los slides y dots
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (dots[i]) {
+                dots[i].classList.remove('active');
+            }
+        });
+        
+        // Agregar clase active al slide y dot seleccionado
+        if (slides[index]) {
+            slides[index].classList.add('active');
+        }
+        if (dots[index]) {
+            dots[index].classList.add('active');
+        }
+        
+        currentSlide = index;
+    }
+    
+    // Función para avanzar al siguiente slide
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+    
+    // Configurar auto-slide
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, slideDuration);
+    }
+    
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+        }
+    }
+    
+    // Agregar event listeners a los dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopAutoSlide();
+            showSlide(index);
+            startAutoSlide();
+        });
     });
     
-    carouselContainer.addEventListener('mouseleave', () => {
-        carousel.style.animationPlayState = 'running';
-    });
+    // Pausar auto-slide al hacer hover sobre el carrusel
+    const carouselWrapper = carousel.closest('.results-carousel-wrapper');
+    if (carouselWrapper) {
+        carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
+        carouselWrapper.addEventListener('mouseleave', startAutoSlide);
+    }
+    
+    // Iniciar auto-slide
+    startAutoSlide();
+    
+    // Limpiar interval al salir de la página
+    window.addEventListener('beforeunload', stopAutoSlide);
 }
 
 // Función de testimonios removida
